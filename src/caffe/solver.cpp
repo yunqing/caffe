@@ -268,7 +268,7 @@ void Solver<Dtype>::Step(int iters) {
 
 template <typename Dtype>
 void Solver<Dtype>::Solve(const char* resume_file) {
-  CHECK(Caffe::root_solver());
+  /* CHECK(Caffe::root_solver()); */
   LOG(INFO) << "Solving " << net_->name();
   LOG(INFO) << "Learning Rate Policy: " << param_.lr_policy();
 
@@ -326,7 +326,7 @@ void Solver<Dtype>::TestAll() {
 
 template <typename Dtype>
 void Solver<Dtype>::Test(const int test_net_id) {
-  CHECK(Caffe::root_solver());
+  /* CHECK(Caffe::root_solver()); */
   LOG(INFO) << "Iteration " << iter_
             << ", Testing net (#" << test_net_id << ")";
   CHECK_NOTNULL(test_nets_[test_net_id].get())->
@@ -401,7 +401,7 @@ void Solver<Dtype>::Test(const int test_net_id) {
 
 template <typename Dtype>
 void Solver<Dtype>::Snapshot() {
-  CHECK(Caffe::root_solver());
+  /* CHECK(Caffe::root_solver()); */
   string model_filename;
   switch (param_.snapshot_format()) {
   case caffe::SolverParameter_SnapshotFormat_BINARYPROTO:
